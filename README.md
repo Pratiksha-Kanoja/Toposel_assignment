@@ -26,6 +26,29 @@ This repository contains a WordPress **plugin** implementation for the assignmen
   - `assets/css/frontend.css`
   - `assets/js/frontend.js` (UI tab/switch interactions)
 
+### Plugin structure
+
+```
+toposel-landing-page.php        Plugin header, constants, loads the classes
+includes/
+  class-tpa-plugin.php          Wires all modules together
+  class-tpa-cpt.php             Registers the "Landing Pages" post type (tp_landing)
+  class-tpa-meta.php            Admin meta box (fields, repeaters, image + URL fields) and secure save
+  class-tpa-defaults.php        Default content and bundled default images
+  class-tpa-shortcode.php       [tp_landing id=".."] shortcode and data loading
+  class-tpa-router.php          Full-screen rendering and the /tp-landing/{id} route
+  class-tpa-assets.php          Loads CSS/JS only where needed
+  class-tpa-activator.php       Creates demo content on activation
+templates/
+  app-shell.php                 Minimal HTML document (no theme header/footer)
+  landing.php                   The interface markup
+assets/
+  css/frontend.css              Layout and responsive styles
+  js/frontend.js                Tabs, favourites, mobile menu
+  js/admin-meta.js              Repeaters and Media Library pickers
+  images/                       Default photos (Unsplash)
+```
+
 ### Run locally with wp-env (Docker)
 
 Requires Docker Desktop running and Node.js.
